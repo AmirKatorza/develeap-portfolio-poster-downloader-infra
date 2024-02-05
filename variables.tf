@@ -31,7 +31,7 @@ variable "subnet_1b_name" {
   type        = string
 }
 
-variable "subnet_b_cidr" {
+variable "subnet_1b_cidr" {
   description = "CIDR block for Subnet B"
   type        = string
   default     = "10.0.2.0/28"
@@ -46,11 +46,6 @@ variable "subnet_1b_az" {
 variable "cluster_name" {
   description = "Name of the EKS cluster"
   type        = string
-}
-
-variable "subnet_ids" {
-  description = "List of Subnet IDs"
-  type        = list(string)
 }
 
 variable "node_group_name" {

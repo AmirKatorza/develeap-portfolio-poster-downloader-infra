@@ -7,7 +7,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "amirk-tf-backend"
+    bucket = "amirk-portfolio-tf-backend"
     key    = "full-Deployment/terraform.tfstate"
     region = "us-east-1"
   }

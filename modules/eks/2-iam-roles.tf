@@ -1,5 +1,5 @@
 resource "aws_iam_role" "eks_cluster_role" {
-  name = "myAmazonEKSClusterRole"
+  name = "amirk-AmazonEKSClusterRole"
 
   assume_role_policy = <<POLICY
 {
@@ -23,7 +23,7 @@ resource "aws_iam_role_policy_attachment" "eks_cluster_policy_attachment" {
 }
 
 resource "aws_iam_role" "eks_node_role" {
-  name = "myAmazonEKSNodeRole"
+  name = "amirk-AmazonEKSNodeRole"
 
   assume_role_policy = <<POLICY
 {
