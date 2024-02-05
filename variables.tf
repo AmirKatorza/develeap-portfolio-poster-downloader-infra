@@ -44,7 +44,7 @@ variable "subnet_1b_az" {
 }
 
 variable "cluster_name" {
-  description = "Name of the ECS cluster"
+  description = "Name of the EKS cluster"
   type        = string
 }
 
