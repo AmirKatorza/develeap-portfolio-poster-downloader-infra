@@ -1,30 +1,34 @@
 module "vpc" {
-  source        = "./modules/vpc"
-  single_target = var.single_target
-  vpc_cidr      = var.vpc_cidr
-  subnet_a_cidr = var.subnet_a_cidr
-  subnet_b_cidr = var.single_target ? null : var.subnet_b_cidr
-  subnet_a_az   = var.subnet_a_az
-  subnet_b_az   = var.single_target ? null : var.subnet_b_az
+  source        = "./modules/vpc"  
   vpc_name      = var.vpc_name
-  subnet_a_name = var.subnet_a_name
-  subnet_b_name = var.single_target ? null : var.subnet_b_name
+  vpc_cidr      = var.vpc_cidr
+  subnet_1a_name = var.subnet_a_name
+  subnet_1a_cidr = var.subnet_1a_cidr
+  subnet_1a_az   = var.subnet_1a_az
+  subnet_1b_name = var.subnet_b_name  
+  subnet_1b_cidr = var.subnet_1b_cidr  
+  subnet_1b_az   = var.subnet_1b_az
+  cluster_name  = var.cluster_name
 }
 
-# module "compute" {
-#   source                      = "./modules/compute"
-#   depends_on                  = [module.network]
-#   ami                         = data.aws_ami.server_ami_debian.id
-#   single_target               = var.single_target
-#   instance_type               = var.instance_type
-#   associate_public_ip_address = var.associate_public_ip_address
-#   key_name                    = var.key_name
-#   node_a_name                 = var.node_a_name
-#   node_b_name                 = var.single_target ? null : var.node_b_name
-#   load_balancer_name          = var.load_balancer_name
-#   lb_port                     = var.lb_port
-#   lb_protocol                 = var.lb_protocol
-#   vpc_id                      = module.network.vpc_id
-#   subnet_a_id                 = module.network.subnet_a_id
-#   subnet_b_id                 = var.single_target ? null : module.network.subnet_b_id
-# }
+module "eks" {
+  source = "./modules/eks"  
+  cluster_name = var.cluster_name
+  subnet_ids = [module.vpc.public_subnet_1a_id, module.vpc.public_subnet_1b_id]
+  node_group_name = var.node_group_name
+  node_group_desired_capacity = var.node_group_desired_capacity
+  node_group_max_capacity = var.node_group_max_capacity
+  node_group_min_capacity = var.node_group_min_capacity
+  node_group_instance_type = var.node_group_instance_type
+  node_group_volume_size = var.node_group_volume_size
+  node_group_key_name = var.node_group_key_name
+  node_group_public_access_cidrs = var.node_group_public_access_cidrs
+  node_group_subnets = var.single_target ? [module.vpc.subnet_a_id] : [module.vpc.subnet_a_id, module.vpc.subnet_b_id]
+  node_group_security_group_ids = [module.vpc.eks_security_group_id]
+  node_group_ami_id = data.aws_ami.eks_ami.id
+  node_group_tags = var.node_group_tags
+  node_group_labels = var.node_group_labels
+  node_group_taints = var.node_group_taints
+  node_group_additional_tags = var.node_group_additional_tags
+  node_group_kubelet_extra_args = var.node_group_kubelet
+}

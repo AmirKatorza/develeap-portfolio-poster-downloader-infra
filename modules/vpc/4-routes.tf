@@ -11,14 +11,12 @@ resource "aws_route_table" "public_rt" {
   }
 }
 
-resource "aws_route_table_association" "public_subnet_a_association" {
-  subnet_id      = aws_subnet.public_subnet_a.id
+resource "aws_route_table_association" "public_subnet_1a_association" {
+  subnet_id      = aws_subnet.public_subnet_1a.id
   route_table_id = aws_route_table.public_rt.id
 }
 
-resource "aws_route_table_association" "public_subnet_b_association" {
-  # count          = var.single_target ? 0 : 1
-  # subnet_id      = aws_subnet.public_subnet_b[0].id
-  subnet_id      = aws_subnet.public_subnet_b.id
+resource "aws_route_table_association" "public_subnet_1b_association" {
+  subnet_id      = aws_subnet.public_subnet_1b.id
   route_table_id = aws_route_table.public_rt.id
 }

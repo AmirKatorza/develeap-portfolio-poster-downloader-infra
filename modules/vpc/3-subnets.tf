@@ -12,7 +12,6 @@ resource "aws_subnet" "public_subnet_1a" {
 }
 
 resource "aws_subnet" "public_subnet_1b" {
-  # count                   = var.single_target ? 0 : 1
   vpc_id                  = aws_vpc.main_vpc.id 
   cidr_block              = var.subnet_1b_cidr
   map_public_ip_on_launch = true

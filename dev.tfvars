@@ -1,6 +1,0 @@
-vpc_name           = "amirk-tf-vpc-dev"
-node_a_name        = "node-a-dev"
-node_b_name        = "node-b-dev"
-load_balancer_name = "amirk-lb-dev"
-subnet_a_name      = "amirk-tf-subnet-a-dev"
-subnet_b_name      = "amirk-tf-subnet-b-dev"
