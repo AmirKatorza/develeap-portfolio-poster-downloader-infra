@@ -1,0 +1,6 @@
+vpc_name           = "amirk-tf-vpc-prod"
+node_a_name        = "node-a-prod"
+node_b_name        = "node-b-prod"
+load_balancer_name = "amirk-lb-prod"
+subnet_a_name      = "amirk-tf-subnet-a-prod"
+subnet_b_name      = "amirk-tf-subnet-b-prod"
