@@ -15,13 +15,7 @@ variable "node_group_name" {
   default     = "portfolio-nodegroup"
 }
 
-variable "region" {
-  description = "AWS Region"
-  type        = string
-  default     = "us-east-1"
-}
-
-variable "instance_type" {
+variable "node_group_instance_type" {
   type    = string
   default = "t3a.small"
 }
