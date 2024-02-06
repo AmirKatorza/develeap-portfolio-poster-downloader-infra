@@ -20,6 +20,11 @@ resource "aws_eks_node_group" "my_node_group" {
     role = "general"
   }
 
+  tags = {
+    "Name"        = var.node_group_name
+    "Environment" = "Production"
+  }
+
   depends_on = [
     aws_eks_cluster.my_cluster,
     aws_iam_role_policy_attachment.eks_worker_node_policy,

@@ -13,6 +13,11 @@ output "public_subnet_1b_id" {
   value       = module.vpc.public_subnet_1b_id
 }
 
+output "eks_cluster_name" {
+  description = "The NAME of the EKS Cluster"
+  value       = module.eks.cluster_name
+}
+
 output "eks_cluster_id" {
   description = "The ID of the EKS Cluster"
   value       = module.eks.cluster_id
