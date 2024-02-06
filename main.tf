@@ -13,8 +13,14 @@ module "vpc" {
 
 module "eks" {
   source                   = "./modules/eks"
+  depends_on               = [module.vpc]
   cluster_name             = var.cluster_name
   subnet_ids               = [module.vpc.public_subnet_1a_id, module.vpc.public_subnet_1b_id]
   node_group_name          = var.node_group_name
   node_group_instance_type = var.node_group_instance_type
+}
+
+module "argocd" {
+  source = "./modules/argocd"  
+  depends_on = [module.eks]
 }
