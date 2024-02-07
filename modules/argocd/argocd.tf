@@ -12,5 +12,6 @@ resource "helm_release" "argocd" {
 }
 
 resource "kubernetes_manifest" "argocd_application" {
+  depends_on = [helm_release.argocd, kubernetes_secret.github_ssh_key]
   manifest = yamldecode(file("${path.module}/application.yaml"))
 }
