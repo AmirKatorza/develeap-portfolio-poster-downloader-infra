@@ -8,7 +8,7 @@ spec:
   project: default
 
   source:
-    repoURL: git@gitlab.com:develeap191/argocd-nana-tutorial.git
+    repoURL: git@github.com:AmirKatorza/develeap-portfolio-poster-downloader-gitops.git
     targetRevision: HEAD
     path: poster-downloader
   destination: 
