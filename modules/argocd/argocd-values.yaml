@@ -11,20 +11,20 @@ configs:
     argocdServerAdminPassword: "$2a$10$5UUz.dQqW/xxCom7vWE33.M0TavnPho4Y3BI/6.CRRFagCDWD8oc6"
     
 
-# server:
-#   ingress:
-#     # -- Enable an ingress resource for the Argo CD server
-#     enabled: true
-#     # -- Defines which ingress controller will implement the resource
-#     ingressClassName: "nginx"
-#     # -- List of ingress hosts
-#     ## Argo Ingress.
-#     ## Hostnames must be provided if Ingress is enabled.
-#     ## Secrets must be manually created in the namespace
-#     hosts: 
-#       - argocd.server.com
-#     # -- List of ingress paths
-#     paths:
-#       - /
-#     # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
-#     pathType: Prefix    
+server:
+  ingress:
+    # -- Enable an ingress resource for the Argo CD server
+    enabled: true
+    # -- Defines which ingress controller will implement the resource
+    ingressClassName: "nginx"
+    # -- List of ingress hosts
+    ## Argo Ingress.
+    ## Hostnames must be provided if Ingress is enabled.
+    ## Secrets must be manually created in the namespace
+    hosts: 
+      - poster-downloader.ddns.net
+    # -- List of ingress paths
+    paths:
+      - /argocd
+    # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
+    pathType: Prefix    
