@@ -3,14 +3,9 @@ output "vpc_id" {
   value       = module.vpc.vpc_id
 }
 
-output "public_subnet_1a_id" {
-  description = "The ID of the Subnet A"
-  value       = module.vpc.public_subnet_1a_id
-}
-
-output "public_subnet_1b_id" {
-  description = "The ID of Subnet B"
-  value       = module.vpc.public_subnet_1b_id
+output "public_subnet_ids" {
+  description = "The IDs of the public subnets"
+  value       = module.vpc.public_subnet_ids
 }
 
 output "eks_cluster_name" {

@@ -38,3 +38,11 @@ resource "aws_eks_addon" "vpc-cni" {
 
   depends_on = [aws_eks_node_group.my_node_group]
 }
+
+data "aws_eks_cluster" "my_cluster" {
+  name = aws_eks_cluster.my_cluster.name
+}
+
+data "aws_eks_cluster_auth" "my_cluster" {
+  name = aws_eks_cluster.my_cluster.name
+}

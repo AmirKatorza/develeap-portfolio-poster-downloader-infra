@@ -1,5 +1,5 @@
 resource "aws_subnet" "public_subnets" {
-  count                   = var.num_subnets  
+  count                   = var.num_subnets
   vpc_id                  = aws_vpc.main_vpc.id
   cidr_block              = cidrsubnet(var.vpc_cidr, var.cidr_offset, count.index)
   map_public_ip_on_launch = var.map_public_ip_on_launch

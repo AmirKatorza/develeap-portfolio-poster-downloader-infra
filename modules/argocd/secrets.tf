@@ -20,8 +20,8 @@ resource "kubernetes_secret" "github_ssh_key" {
   }
 
   data = {
-    "name"          = "develeap-portfolio-poster-downloader-gitops" # Name for the repository credential within ArgoCD
-    "type"          = "git" # Type of the repository
+    "name"          = "develeap-portfolio-poster-downloader-gitops"                                # Name for the repository credential within ArgoCD
+    "type"          = "git"                                                                        # Type of the repository
     "url"           = "git@github.com:AmirKatorza/develeap-portfolio-poster-downloader-gitops.git" # Repository URL    
     "sshPrivateKey" = data.aws_secretsmanager_secret_version.github_ssh_key_current.secret_string
   }

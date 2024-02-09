@@ -10,38 +10,19 @@ variable "vpc_cidr" {
   default     = "10.0.0.0/16"
 }
 
-variable "subnet_1a_name" {
-  description = "Name of Subnet A"
-  type        = string
+variable "num_subnets" {
+  type    = number
+  default = 2
 }
 
-variable "subnet_1a_cidr" {
-  description = "CIDR block for Subnet A"
-  type        = string
-  default     = "10.0.1.0/28"
+variable "cidr_offset" {
+  type    = number
+  default = 8
 }
 
-variable "subnet_1a_az" {
-  description = "Availability Zone for Subnet A"
-  type        = string
-  default     = "us-east-1a"
-}
-
-variable "subnet_1b_name" {
-  description = "Name of Subnet B"
-  type        = string
-}
-
-variable "subnet_1b_cidr" {
-  description = "CIDR block for Subnet B"
-  type        = string
-  default     = "10.0.2.0/28"
-}
-
-variable "subnet_1b_az" {
-  description = "Availability Zone for Subnet B"
-  type        = string
-  default     = "us-east-1b"
+variable "map_public_ip_on_launch" {
+  type    = bool
+  default = true
 }
 
 # eks

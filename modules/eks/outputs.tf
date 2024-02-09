@@ -21,3 +21,7 @@ output "cluster_endpoint" {
 output "cluster_certificate_authority_data" {
   value = aws_eks_cluster.my_cluster.certificate_authority[0].data
 }
+
+output "cluster_token" {
+  value = data.aws_eks_cluster_auth.my_cluster.token
+}

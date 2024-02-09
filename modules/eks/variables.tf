@@ -26,13 +26,13 @@ variable "node_group_max_size" {
   type        = number
   default     = 3
 }
-    
+
 variable "node_group_min_size" {
   description = "The minimum number of worker nodes for the EKS node group"
   type        = number
   default     = 1
 }
- 
+
 variable "node_group_max_unavailable" {
   description = "The maximum number of nodes that can be unavailable during a node group update"
   type        = number

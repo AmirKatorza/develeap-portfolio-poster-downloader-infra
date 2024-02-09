@@ -11,7 +11,7 @@ terraform {
     }
 
     helm = {
-      source  = "hashicorp/helm"
+      source = "hashicorp/helm"
     }
 
     kubectl = {
@@ -42,25 +42,17 @@ provider "aws" {
   }
 }
 
-data "aws_eks_cluster" "my_cluster" {
-  name = module.eks.cluster_name
-}
-
-data "aws_eks_cluster_auth" "my_cluster" {
-  name = module.eks.cluster_name
-}
-
 provider "kubernetes" {
   host                   = module.eks.cluster_endpoint
   cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
-  token                  = data.aws_eks_cluster_auth.my_cluster.token
+  token                  = module.eks.cluster_token
 }
 
 provider "helm" {
   kubernetes {
     host                   = module.eks.cluster_endpoint
     cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
-    token                  = data.aws_eks_cluster_auth.my_cluster.token
+    token                  = module.eks.cluster_token
   }
 }
 
