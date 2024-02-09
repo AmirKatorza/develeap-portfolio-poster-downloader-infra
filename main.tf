@@ -9,12 +9,16 @@ module "vpc" {
 }
 
 module "eks" {
-  source                   = "./modules/eks"
-  depends_on               = [module.vpc]
-  cluster_name             = var.cluster_name
-  subnet_ids               = module.vpc.public_subnet_ids
-  node_group_name          = var.node_group_name
-  node_group_instance_type = var.node_group_instance_type
+  source                     = "./modules/eks"
+  depends_on                 = [module.vpc]
+  cluster_name               = var.cluster_name
+  subnet_ids                 = module.vpc.public_subnet_ids
+  node_group_name            = var.node_group_name
+  node_group_desired_size    = var.node_group_desired_size
+  node_group_max_size        = var.node_group_max_size
+  node_group_min_size        = var.node_group_min_size
+  node_group_max_unavailable = var.node_group_max_unavailable
+  node_group_instance_type   = var.node_group_instance_type
 }
 
 # module "argocd" {
