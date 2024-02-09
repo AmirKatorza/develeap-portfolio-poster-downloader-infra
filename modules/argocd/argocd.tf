@@ -9,7 +9,9 @@ resource "helm_release" "argocd" {
   create_namespace = true
   wait             = true
 
-  values = [file("${path.module}/argocd-values.yaml")]
+  values = [
+    "${file(var.argocd_values_file)}"
+  ]
 }
 
 # # Apply the ArgoCD bootstrap application manifest

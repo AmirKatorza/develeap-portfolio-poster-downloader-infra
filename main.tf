@@ -1,5 +1,6 @@
 module "vpc" {
-  source                  = "./modules/vpc"
+  source = "./modules/vpc"
+
   vpc_name                = var.vpc_name
   vpc_cidr                = var.vpc_cidr
   num_subnets             = var.num_subnets
@@ -9,8 +10,9 @@ module "vpc" {
 }
 
 module "eks" {
-  source                     = "./modules/eks"
-  depends_on                 = [module.vpc]
+  source     = "./modules/eks"
+  depends_on = [module.vpc]
+
   cluster_name               = var.cluster_name
   subnet_ids                 = module.vpc.public_subnet_ids
   node_group_name            = var.node_group_name
@@ -21,7 +23,9 @@ module "eks" {
   node_group_instance_type   = var.node_group_instance_type
 }
 
-# module "argocd" {
-#   source           = "./modules/argocd"
-#   depends_on       = [module.eks]  
-# }
+module "argocd" {
+  source     = "./modules/argocd"
+  depends_on = [module.eks]
+
+  argocd_values_file = var.argocd_values_file
+}

@@ -65,3 +65,9 @@ variable "node_group_instance_type" {
   type        = string
   default     = "t3a.small"
 }
+
+# argocd
+variable "argocd_values_file" {
+  description = "Path to the ArgoCD values file"
+  type        = string
+}
