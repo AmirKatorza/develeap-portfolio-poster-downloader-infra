@@ -7,13 +7,13 @@ resource "aws_eks_node_group" "my_node_group" {
   instance_types = [var.node_group_instance_type]
 
   scaling_config {
-    desired_size = 2
-    max_size     = 3
-    min_size     = 1
+    desired_size = var.node_group_desired_size
+    max_size     = var.node_group_max_size
+    min_size     = var.node_group_min_size
   }
 
   update_config {
-    max_unavailable = 1
+    max_unavailable = var.node_group_max_unavailable
   }
 
   labels = {

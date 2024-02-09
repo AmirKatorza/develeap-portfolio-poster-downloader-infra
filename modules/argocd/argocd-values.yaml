@@ -16,8 +16,8 @@ server:
     # -- Enable an ingress resource for the Argo CD server
     enabled: true
     annotations:
-      cert-manager.io/cluster-issuer: "letsencrypt"
-      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"  # Redirect HTTP to HTTPS (check if your ingress controller supports this annotation)
+      # cert-manager.io/cluster-issuer: "letsencrypt"
+      # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"  # Redirect HTTP to HTTPS (check if your ingress controller supports this annotation)
     # -- Defines which ingress controller will implement the resource
     ingressClassName: "nginx"
     # -- List of ingress hosts
@@ -32,11 +32,11 @@ server:
     # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
     pathType: Prefix  
     # -- Ingress TLS configuration
-    tls:
-      - hosts:
-          - poster-downloader.ddns.net
-        # Provide a name for the TLS secret that cert-manager will create or update
-        secretName: poster-downloader-ddns-net-tls
-    # Assuming you want to enforce HTTPS, it might not be necessary to explicitly enable HTTP
-    # If you want to allow HTTP access alongside HTTPS, specific ingress controller annotations are typically used to handle redirection or dual access configurations
-    https: true
+    # tls:
+    #   - hosts:
+    #       - poster-downloader.ddns.net
+    #     # Provide a name for the TLS secret that cert-manager will create or update
+    #     secretName: poster-downloader-ddns-net-tls
+    # # Assuming you want to enforce HTTPS, it might not be necessary to explicitly enable HTTP
+    # # If you want to allow HTTP access alongside HTTPS, specific ingress controller annotations are typically used to handle redirection or dual access configurations
+    # https: true

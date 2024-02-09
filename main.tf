@@ -15,7 +15,7 @@ module "eks" {
   source                   = "./modules/eks"
   depends_on               = [module.vpc]
   cluster_name             = var.cluster_name
-  subnet_ids               = [module.vpc.public_subnet_1a_id, module.vpc.public_subnet_1b_id]
+  subnet_ids               = module.vpc.public_subnet_ids
   node_group_name          = var.node_group_name
   node_group_instance_type = var.node_group_instance_type
 }
@@ -23,4 +23,6 @@ module "eks" {
 module "argocd" {
   source = "./modules/argocd"  
   depends_on = [module.eks]
+  eks_cluster_name = module.eks.cluster_name  
+  eks_cluster_arn = module.eks.cluster_arn
 }

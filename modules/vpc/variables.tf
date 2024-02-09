@@ -8,34 +8,19 @@ variable "vpc_cidr" {
   default = "10.0.0.0/16"
 }
 
-variable "subnet_1a_name" {
-  type    = string
-  default = "public-us-east-1a"
+variable "num_subnets" {
+  type    = number
+  default = 2
 }
 
-variable "subnet_1a_cidr" {
-  type    = string
-  default = "10.0.1.0/28"
+variable "cidr_offset" {
+  type    = number
+  default = 8
 }
 
-variable "subnet_1a_az" {
-  type    = string
-  default = "us-east-1a"
-}
-
-variable "subnet_1b_name" {
-  type    = string
-  default = "public-us-east-1b"
-}
-
-variable "subnet_1b_cidr" {
-  type    = string
-  default = "10.0.2.0/28"
-}
-
-variable "subnet_1b_az" {
-  type    = string
-  default = "us-east-1b"
+variable "map_public_ip_on_launch" {
+  type    = bool
+  default = true
 }
 
 variable "cluster_name" {

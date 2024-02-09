@@ -1,27 +1,13 @@
-resource "aws_subnet" "public_subnet_1a" {
+resource "aws_subnet" "public_subnets" {
+  count                   = var.num_subnets  
   vpc_id                  = aws_vpc.main_vpc.id
-  cidr_block              = var.subnet_1a_cidr
-  map_public_ip_on_launch = true
-  availability_zone       = var.subnet_1a_az
+  cidr_block              = cidrsubnet(var.vpc_cidr, var.cidr_offset, count.index)
+  map_public_ip_on_launch = var.map_public_ip_on_launch
+  availability_zone       = element(data.aws_availability_zones.available.names, count.index % length(data.aws_availability_zones.available.names))
 
   tags = merge(
     {
-      "Name"                   = var.subnet_1a_name
-      "kubernetes.io/role/elb" = "1"
-    },
-    { "kubernetes.io/cluster/${var.cluster_name}" = "owned" }
-  )
-}
-
-resource "aws_subnet" "public_subnet_1b" {
-  vpc_id                  = aws_vpc.main_vpc.id
-  cidr_block              = var.subnet_1b_cidr
-  map_public_ip_on_launch = true
-  availability_zone       = var.subnet_1b_az
-
-  tags = merge(
-    {
-      "Name"                   = var.subnet_1b_name
+      "Name"                   = "${var.vpc_name}-subnet-${count.index + 1}"
       "kubernetes.io/role/elb" = "1"
     },
     { "kubernetes.io/cluster/${var.cluster_name}" = "owned" }
