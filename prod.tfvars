@@ -13,4 +13,4 @@ node_group_min_size        = 3
 node_group_max_unavailable = 1
 
 # ArgoCD
-argocd_values_file = "${path.module}/modules/argocd/argocd-values.yaml"
+argocd_values_file = "modules/argocd/argocd-values.yaml"
