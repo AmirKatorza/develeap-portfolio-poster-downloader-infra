@@ -61,9 +61,20 @@ variable "node_group_max_unavailable" {
 }
 
 variable "node_group_instance_type" {
-  description = "Type of the EC2 instance"
+  description = "Type of the EC2 instance for the EKS node group"
   type        = string
-  default     = "t3a.small"
+  default     = "t3a.medium"
+}
+
+variable "node_group_ami_type" {
+  type        = string
+  default     = "AL2_x86_64"
+  description = "AMI associated with the EKS node group"
+}
+variable "node_group_disk_size" {
+  type        = number
+  default     = 20
+  description = "Disk size in GiB for worker nodes"
 }
 
 # argocd

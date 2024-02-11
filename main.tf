@@ -21,6 +21,8 @@ module "eks" {
   node_group_min_size        = var.node_group_min_size
   node_group_max_unavailable = var.node_group_max_unavailable
   node_group_instance_type   = var.node_group_instance_type
+  node_group_disk_size       = var.node_group_disk_size
+  node_group_ami_type        = var.node_group_ami_type
 }
 
 module "argocd" {

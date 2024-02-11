@@ -9,6 +9,7 @@ variable "subnet_ids" {
   type        = list(string)
 }
 
+# Node group variables
 variable "node_group_name" {
   description = "The name of the EKS node group"
   type        = string
@@ -40,6 +41,18 @@ variable "node_group_max_unavailable" {
 }
 
 variable "node_group_instance_type" {
-  type    = string
-  default = "t3a.small"
+  description = "Instance type for the EKS node group"
+  type        = string
+  default     = "t3a.medium"  
+}
+
+variable "node_group_ami_type" {
+  description = "AMI associated with the EKS node group"
+  type        = string
+  default     = "AL2_x86_64"  
+}
+variable "node_group_disk_size" {
+  description = "Disk size in GiB for worker nodes"
+  type        = number
+  default     = 20  
 }
