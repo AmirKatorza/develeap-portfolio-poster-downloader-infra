@@ -14,3 +14,4 @@ node_group_max_unavailable = 1
 
 # ArgoCD
 argocd_values_file = "modules/argocd/argocd-values.yaml"
+gitops_github_repo_url = "git@github.com:AmirKatorza/develeap-portfolio-poster-downloader-gitops.git"

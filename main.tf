@@ -29,5 +29,6 @@ module "argocd" {
   source     = "./modules/argocd"
   depends_on = [module.eks]
 
+  gitops_github_repo_url = var.gitops_github_repo_url
   argocd_values_file = var.argocd_values_file
 }
