@@ -13,3 +13,7 @@ resource "aws_subnet" "public_subnets" {
     { "kubernetes.io/cluster/${var.cluster_name}" = "owned" }
   )
 }
+
+data "aws_availability_zones" "available" {
+  state = "available"
+}

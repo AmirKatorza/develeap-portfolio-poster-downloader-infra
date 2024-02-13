@@ -7,7 +7,3 @@ resource "aws_vpc" "main_vpc" {
     Name = var.vpc_name
   }
 }
-
-data "aws_availability_zones" "available" {
-  state = "available"
-}
