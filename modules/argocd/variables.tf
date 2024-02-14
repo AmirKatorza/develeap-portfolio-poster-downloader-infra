@@ -5,5 +5,5 @@ variable "argocd_values_file" {
 
 variable "gitops_github_repo_url" {
   description = "URL of the Git repository for ArgoCD access"
-  type        = string  
+  type        = string
 }
