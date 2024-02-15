@@ -54,6 +54,6 @@ resource "kubernetes_secret" "mongodb_cred_secret" {
     mongodb-passwords        = jsondecode(data.aws_secretsmanager_secret_version.mongodb-credentials_current.secret_string)["mongodb-passwords"][0]
     mongodb-root-password    = jsondecode(data.aws_secretsmanager_secret_version.mongodb-credentials_current.secret_string)["mongodb-root-password"]
     mongodb-metrics-password = ""
-    mongodb-replica-set-key  = ""
+    mongodb-replica-set-key  = jsondecode(data.aws_secretsmanager_secret_version.mongodb-credentials_current.secret_string)["mongodb-replica-set-key"]
   }
 }
