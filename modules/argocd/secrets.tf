@@ -1,6 +1,6 @@
 # Retrieve GitHub SSH Key from AWS Secrets Manager
 data "aws_secretsmanager_secret" "github_ssh_key" {
-  arn = "arn:aws:secretsmanager:us-east-1:644435390668:secret:amirk-argo-ssh-xCsl8I"
+  arn = "arn:aws:secretsmanager:us-east-1:644435390668:secret:amirk-argo-ssh-xCsl8I"  
 }
 
 data "aws_secretsmanager_secret_version" "github_ssh_key_current" {
