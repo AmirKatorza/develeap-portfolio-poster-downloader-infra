@@ -80,7 +80,7 @@ variable "node_group_disk_size" {
 # argocd
 variable "gitops_github_repo_url" {
   description = "URL of the Git repository for ArgoCD access"
-  type        = string  
+  type        = string
 }
 
 variable "argocd_values_file" {

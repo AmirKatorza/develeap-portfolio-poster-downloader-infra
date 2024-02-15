@@ -47,7 +47,7 @@ resource "kubernetes_secret" "mongodb_cred_secret" {
 
   metadata {
     name      = "mongodb-credentials"
-    namespace = "default"
+    namespace = "poster-downloader"
   }
 
   data = {
