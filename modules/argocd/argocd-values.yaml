@@ -36,7 +36,7 @@ server:
       - hosts:
           - poster-downloader.ddns.net
         # Provide a name for the TLS secret that cert-manager will create or update
-        secretName: poster-downloader-tls
+        # secretName: source-tls
     # Assuming you want to enforce HTTPS, it might not be necessary to explicitly enable HTTP
     # If you want to allow HTTP access alongside HTTPS, specific ingress controller annotations are typically used to handle redirection or dual access configurations
     https: true
