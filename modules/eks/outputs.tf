@@ -15,7 +15,7 @@ output "node_group_role_arn" {
 }
 
 output "cluster_endpoint" {
-  value = aws_eks_cluster.my_cluster.endpoint
+  value = data.aws_eks_cluster.my_cluster.endpoint
 }
 
 output "cluster_certificate_authority_data" {
