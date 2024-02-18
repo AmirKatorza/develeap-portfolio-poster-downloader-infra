@@ -30,7 +30,7 @@ server:
     paths:
       - /argocd
     # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
-    pathType: Prefix  
+    pathType: Exact  
     # -- Ingress TLS configuration
     tls:
       - hosts:
