@@ -4,7 +4,7 @@ region = "us-east-1"
 # tags
 owner_tag       = "amirk"
 bootcamp_tag    = "19"
-expiration_date = "29-09-2024"
+expiration_date_tag = "29-09-2024"
 
 # VPC
 vpc_name                = "amirk-tf-vpc-portfolio"
