@@ -11,7 +11,7 @@ terraform {
     }
 
     helm = {
-      source = "hashicorp/helm"
+      source  = "hashicorp/helm"
       version = "~> 2.0"
     }
 
@@ -29,16 +29,16 @@ terraform {
 }
 
 provider "aws" {
-  region                   = "us-east-1"
+  region                   = var.region
   shared_config_files      = ["~/.aws/config"]
   shared_credentials_files = ["~/.aws/credentials"]
   profile                  = "amirk-develeap"
 
   default_tags {
     tags = {
-      owner           = "amirk"
-      bootcamp        = "19"
-      expiration_date = "29-09-2024"
+      owner           = var.owner_tag
+      bootcamp        = var.bootcamp_tag
+      expiration_date = var.expiration_date_tag
     }
   }
 }

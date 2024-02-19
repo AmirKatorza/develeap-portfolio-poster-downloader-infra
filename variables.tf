@@ -1,3 +1,25 @@
+# providers
+variable "region" {
+  description = "region to apply in"
+  type        = string
+  default     = "us-east-1"
+}
+
+variable "owner_tag" {
+  description = "Owner tag for all resources"
+  type        = string
+}
+
+variable "bootcamp_tag" {
+  description = "Bootcamp tag for all resources"
+  type        = string
+}
+
+variable "expiration_date_tag" {
+  description = "Expiration date tag for all resources"
+  type        = string
+}
+
 # vpc
 variable "vpc_name" {
   description = "Name of the VPC"
