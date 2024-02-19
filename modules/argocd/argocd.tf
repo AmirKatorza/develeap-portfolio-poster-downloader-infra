@@ -14,8 +14,13 @@ resource "helm_release" "argocd" {
   ]
 }
 
-# # Apply the ArgoCD bootstrap application manifest
-# resource "kubernetes_manifest" "argocd_application" {
-#   depends_on = [helm_release.argocd, kubernetes_secret.github_ssh_key]
-#   manifest = yamldecode(file("${path.module}/application.yaml"))
-# }
+# Apply the ArgoCD bootstrap application manifest
+resource "kubectl_manifest" "bootstrap_cluster" {
+  depends_on = [
+    helm_release.argocd,
+    kubernetes_secret.argocd_github_ssh_key,
+    kubernetes_secret.mongodb_cred_secret
+  ]
+  count     = var.deploy_cluster_resource ? 1 : 0
+  yaml_body = file(var.bootstrap_manifest_file)
+}
