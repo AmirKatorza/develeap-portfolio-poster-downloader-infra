@@ -22,7 +22,7 @@ resource "kubernetes_secret" "argocd_github_ssh_key" {
     name          = "gitops"
     url           = var.gitops_github_repo_url
     type          = "git"
-    sshPrivateKey = data.aws_secretsmanager_secret_version.github_ssh_key_current.secret_string
+    sshPrivateKey = replace(data.aws_secretsmanager_secret_version.github_ssh_key_current.secret_string, "\r", "")
   }
 }
 
