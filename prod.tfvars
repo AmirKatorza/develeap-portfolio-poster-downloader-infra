@@ -2,8 +2,8 @@
 region = "us-east-1"
 
 # tags
-owner_tag       = "amirk"
-bootcamp_tag    = "19"
+owner_tag           = "amirk"
+bootcamp_tag        = "19"
 expiration_date_tag = "29-09-2024"
 
 # VPC
@@ -19,6 +19,7 @@ node_group_desired_size    = 3
 node_group_max_size        = 3
 node_group_min_size        = 3
 node_group_max_unavailable = 1
+node_group_instance_type   = "t3a.large"
 
 # ArgoCD
 argocd_values_file      = "modules/argocd/argocd-values.yaml"

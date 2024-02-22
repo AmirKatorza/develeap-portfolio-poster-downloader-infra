@@ -1,4 +1,4 @@
-# providers
+# Providers
 variable "region" {
   description = "region to apply in"
   type        = string
@@ -20,7 +20,7 @@ variable "expiration_date_tag" {
   type        = string
 }
 
-# vpc
+# VPC
 variable "vpc_name" {
   description = "Name of the VPC"
   type        = string
@@ -47,7 +47,7 @@ variable "map_public_ip_on_launch" {
   default = true
 }
 
-# eks
+# EKS
 variable "cluster_name" {
   description = "Name of the EKS cluster"
   type        = string
@@ -99,7 +99,7 @@ variable "node_group_disk_size" {
   description = "Disk size in GiB for worker nodes"
 }
 
-# argocd
+# ArgoCD
 variable "gitops_github_repo_url" {
   description = "URL of the Git repository for ArgoCD access"
   type        = string
